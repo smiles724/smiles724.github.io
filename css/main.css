@@ -37,12 +37,6 @@ ul {
     list-style: none;
     padding-left: 2em;
 }
-ul li::before {
-    content: "● ";
-    color: #2C92C5;
-    padding-left: 2em;    
-    padding-right: 2em;
-}
 ul.posts { 
     margin: 20px auto 40px; 
     font-size: 1em;
