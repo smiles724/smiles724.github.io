@@ -8,10 +8,12 @@ title: Fang WU
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 </head>
 
+<body>
+
 <div class="blurb">
 	<h2>Hi, I'm Fang WU!</h2>
-	<p><img src="img/wu.jpg" align="right" alt="portrait" width="155" height="206"/>Welcome to my personal web page! I am a Ph.D. student at <a href="https://www.cs.stanford.edu/"><strong>Stanford Computer Science</strong></a>, affilated with the <a href="https://arcinstitute.org/"><strong>Arc Institute</strong></a> and <a href="https://evodesign.org/team"><strong>Laboratory of Evolutionary Design</strong></a>. I have great fortune to work with Prof. <a href="https://www.james-zou.com/"><strong>Brian Hie</strong></a> and Prof. <a href="https://evodesign.org/team"><strong>James Zou</strong></a> during the first-year rotation. Previously, I was a research engineer at <a href="https://air.tsinghua.edu.cn/en/">Tsinghua University</a> advised by <a href="https://home.ttic.edu/~jinbo/"><b>Jinbo Xu</b></a>. I obtained my Master's degree at Columbia University, advised by <a href="http://www.cs.yale.edu/homes/radev/"><strong>Dragomir Radev</strong></a>. It is a profound loss for me to lose Prof. Dragomir on March 29, 2023 (<a href="https://seas.yale.edu/news-events/news/memoriam-dragomir-radev-professor-computer-science">in memoriam</a>). My research focuses on deep learning algorithms for scientific problems — in particular, 3D geometric networks, generative AI, domain adaptation, and other applications in chemistry and structural biology. </p>
-
+	<p><img src="img/wu.jpg" align="right" alt="portrait" width="155" height="206"/>Welcome to my personal web page! I am a Ph.D. student at <a href="https://www.cs.stanford.edu/"><strong>Stanford Computer Science</strong></a>, affiliated with the <a href="https://arcinstitute.org/"><strong>Arc Institute</strong></a> and <a href="https://evodesign.org/team"><strong>Laboratory of Evolutionary Design</strong></a>. I have great fortune to work with Prof. <a href="https://www.james-zou.com/"><strong>James Zou</strong></a> and Prof. <a href="https://evodesign.org/team"><strong>Brian Hie</strong></a> during the first-year rotation. Previously, I was a research engineer at <a href="https://air.tsinghua.edu.cn/en/">Tsinghua University</a> advised by <a href="https://home.ttic.edu/~jinbo/"><b>Jinbo Xu</b></a>. I obtained my Master's degree at Columbia University, advised by <a href="http://www.cs.yale.edu/homes/radev/"><strong>Dragomir Radev</strong></a>. It is a profound loss for me to lose Prof. Dragomir on March 29, 2023 (<a href="https://seas.yale.edu/news-events/news/memoriam-dragomir-radev-professor-computer-science">in memoriam</a>). My research focuses on deep learning algorithms for scientific problems — in particular, 3D geometric networks, generative AI, domain adaptation, and other applications in chemistry and structural biology. 
+	</p>
 <!-- 	<li><a href="mailto:fw2359@columbia.edu">Email</a></li>
 	<li><a href="https://scholar.google.com/citations?user=8vHkc5YAAAAJ&hl=en">Google Scholar</a></li>
 	<li><a href="https://www.linkedin.com/in/wu-fang/">Linkedin</a></li>	        		
@@ -39,6 +41,8 @@ title: Fang WU
 			<img src="img/new.png" align="middle" width="32" height="15"/>
 			<b  style="background-image: linear-gradient(90deg,#ff0000 0,#2575fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
 			    &nbsp&nbsp [2024/03] One paper is accepted by <em>ICML 2024</em> and another paper is accepted by <em>IJCAI 2024</em>. <br></b>
+			<!-- <span id="dots">......</span> -->
+			<span id="more" style="display: none;">
 			<img src="img/new.png" align="middle" width="32" height="15"/>
 			<b  style="background-image: linear-gradient(90deg,#ff0000 0,#2575fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
 			    &nbsp&nbsp [2023/10] One paper is accepted by <em>Nature Communications</em>. <br></b>
@@ -63,8 +67,11 @@ title: Fang WU
 			<img src="img/new.png" align="middle" width="32" height="15"/>
 			<b  style="background-image: linear-gradient(90deg,#ff0000 0,#2575fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
 				&nbsp&nbsp [2022/10] One work on 3D pretraining is accepted by <em>Advanced Science</em>.</b>
+			</span>
 		</p>
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <a href="javascript:void(0);" onclick="myFunction()" id="myLink" style="color: blue; text-decoration: none; cursor: pointer;">Read more</a>
 
+	<!-- &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <button onclick="myFunction()" id="myBtn">Read more</button> -->
 
 	<h2><a name="pub"></a>Research Summary</h2>
 	<p style="margin-left: 2em;">* represents equal contribution and co-first authorship.</p>
@@ -89,7 +96,7 @@ title: Fang WU
 		</p>	
 
 
-	<h3 style="margin-left: 2em;">Generative Models for Proteins</h3>
+	<h3 style="margin-left: 2em;">Generative Models for Drug Design</h3>
 		<p style="margin-left: 4em;"> 
 			<img src="img/paper/htp.png" align="left" width="170" height="90"/>
 			&nbsp&nbsp <b> A Hierarchical Training Paradigm for Antibody Structure-sequence Co-design</b> <br>
@@ -110,7 +117,7 @@ title: Fang WU
 		<p style="margin-left: 4em;"> 
 			<img src="img/paper/bib_survey.png" align="left" width="170" height="90"/>
 			&nbsp&nbsp <b>A Survey of Generative AI for de novo Drug Design: New Frontiers in Molecule and Protein Generation. </b> <br>
-			&nbsp&nbsp <b>Xiangru Tang*, Howard Dai*, Elizabeth Knight*, <b>Fang Wu,</b>, Yunyang Li, Tianxiao Li, Mark Gerstein Author Notes</b> <br>
+			&nbsp&nbsp Xiangru Tang*, Howard Dai*, Elizabeth Knight*, <b>Fang Wu,</b>, Yunyang Li, Tianxiao Li, Mark Gerstein<br>
 			&nbsp&nbsp <em>Briefings in Bioinformatics</em> <br>
 			&nbsp&nbsp <a href="https://academic.oup.com/bib/article/25/4/bbae338/7713723">[Paper]</a> 
 			&nbsp&nbsp <a href="https://github.com/gersteinlab/GenAI4Drug">[Github Repo.]</a><br>
@@ -145,7 +152,7 @@ title: Fang WU
 			<br>
 		</p> -->
 
-	<h3 style="margin-left: 2em;">3D Geometric Deep Learning for Molecules, Proteins, and Materials</h3>
+	<h3 style="margin-left: 2em;">3D Geometric Deep Learning</h3>  
 		<p style="margin-left: 4em;"> 
 			<img src="img/paper/molformer.png" align="left" width="170" height="90"/>
 			&nbsp&nbsp <b>Molformer: Motif-based Transformer on 3D Heterogeneous Molecular Graphs. </b> <br>
@@ -318,12 +325,15 @@ title: Fang WU
 		</p>
 
 		<p style="margin-left: 2em;"> 
+		<!-- <span id="more" style="display: none;"> -->
 			<img src="img/cufe.png" align="left" width="80" height="60"/>
 			&nbsp&nbsp <b>Central University of Economics and Finance, 2015-2019 </b><br> 
 			&nbsp&nbsp &bull; Bachelor of Science<br> 
 			&nbsp&nbsp &bull; GPA: 3.85/4.0<br>
+		<!-- </span> -->
 		</p>
-
+		<!-- &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <a href="javascript:void(0);" onclick="myFunction()" id="myLink" style="color: blue; text-decoration: none; cursor: pointer;">Read more</a> -->
+		
 	<h2><a name="exp"></a>Research Experience</h2>
 		<p style="text-indent: 2em;">Before joining Stanford University, I feel fortunate to be a research assistant/engineer advised by <a href="https://home.ttic.edu/~jinbo/"><b><strong>Jinbo Xu</strong></b></a> at Tsinghua University and <a href="https://scholar.google.com/citations?user=Y-nyLGIAAAAJ&hl=en&oi=ao"><b><strong>Stan Z. Li</strong></b></a> at Westlake University, and recieved guidance as a visiting student from <a href="https://person.zju.edu.cn/en/huajun"><b>Huajun Chen</b></a>, <a href="https://scholar.google.com/citations?user=UeltiQ4AAAAJ&hl=en"><b>Xiang Bai</b></a> and <a href="http://www.cs.cmu.edu/~lanzhzh/"><b>Danny Lan</b></a>. </p>
 <!-- 		<p style="margin-left: 2em;"> 
@@ -383,6 +393,7 @@ title: Fang WU
 
 	<h2><a name="ack"></a>Acknowledgement</h2>
 		<p style="text-indent: 2em;">My study cannot be possible without the support from my awesome friends, mentors, and collaborators! Check out some of them: </p>
+		<p style="margin-left: 4em;">Prof. <a href="">Brian Hie</a>, Dr. <a href="https://www.linkedin.com/in/francois-chaubard-0a169448/">Francois Chaubard</a> at Stanford University.</p>
 		<p style="margin-left: 4em;">Prof. <a href="https://cpsc.yale.edu/people/dragomir-radev">Dragomir Radev</a>, Dr. <a href="https://xiangrutang.github.io/">Xiangru Tang</a> at Yale University. R.I.P. to Dr. Dragomir. </p>
 		<p style="margin-left: 4em;">Prof. <a href="https://scholar.google.com/citations?user=Y-nyLGIAAAAJ&hl=en&oi=ao">Stan Z. Li</a>, Prof. <a href="http://www.cs.cmu.edu/~lanzhzh/">Danny Lan</a>, Dr. <a href="https://scholar.google.com/citations?user=SKTQTXwAAAAJ&hl=zh-CN">Siyuan Li</a>, Dr. <a href="https://lirongwu.github.io/">Lirong Wu</a>, Dr. Haitao Lin, Dr. Yufei Huang at Westlake University.</p>
 		<p style="margin-left: 4em;">Prof. <a href="https://air.tsinghua.edu.cn/info/1047/1675.htm">Jinbo Xu</a>, Prof. <a href="https://scholar.google.com.hk/citations?user=pDMnGloAAAAJ&hl=zh-CN">Xianyun Zhan</a>, Dr. Shikun Feng at Tsinghua University, and Prof. <a href="https://gsai.ruc.edu.cn/addons/teacher/index/info.html?user_id=31&ruccode=ADIIMVRnBzFXMFdnVTAIOw%3D%3D&ln=en">Wenbing Huang</a> at Renmin University.</p>
@@ -401,4 +412,19 @@ title: Fang WU
 	<br>
 	<a href="https://clustrmaps.com/site/1brku" title="Visit tracker"><img src="//www.clustrmaps.com/map_v2.png?d=Fl2bXkWRj5KhnWzKs27ehrk6FKJXn891XzeirNnn6wQ&cl=ffffff" width="300"></a>
 
+	<script>
+		function myFunction() {
+		  var moreText = document.getElementById("more");
+		  var linkText = document.getElementById("myLink");
+
+		  if (moreText.style.display === "none") {
+		    moreText.style.display = "inline";
+		    linkText.innerHTML = "Read less"; 
+		  } else {
+		    moreText.style.display = "none";
+		    linkText.innerHTML = "Read more..."; 
+		  }
+		}
+	</script>
 </div><!-- /.blurb -->
+</body>
