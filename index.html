@@ -5,6 +5,83 @@ title: Fang WU
 <head>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<style>
+        .filter-container {
+            margin: 20px 0;
+            padding: 10px 0;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .filter-link {
+            color: #0066cc;
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .filter-link:hover {
+            background-color: #f0f0f0;
+        }
+
+        .filter-link.active {
+            background-color: #0066cc;
+            color: white;
+        }
+
+        .filter-separator {
+            margin: 0 10px;
+            color: #666;
+        }
+
+        .topic-section {
+            margin: 20px 0;
+        }
+
+        .topic-section.hidden {
+            display: none;
+        }
+
+        .paper-item {
+            margin: 20px 0;
+            padding: 10px 0;
+        }
+
+        .paper-image {
+            float: left;
+            margin-right: 15px;
+        }
+
+        .paper-content {
+            margin-left: 185px; /* Adjust based on image width + margin */
+        }
+
+        .conference-tag {
+            display: inline-block;
+            background: #f7f7f7;
+            color: #333333;
+            padding: 2px 6px;
+            border-radius: 3px;
+            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15);
+            font-weight: normal;
+            font-size: 0.9em;
+            font-family: 'Georgia', 'Times New Roman', serif;
+        }
+
+        .github-stars {
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        /* Clear floats after paper items */
+        .paper-item::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
 </head>
 
 <body>
@@ -97,7 +174,25 @@ title: Fang WU
 	<h2><a name="pub"></a>Research Summary</h2>  
 	<!-- TODO: seperate webpages for ai4s and LLM -->
 	<p style="margin-left: 2em;">* represents equal contribution and co-first authorship. &dagger; denotes the corresponding author(s).</p>
-	<h3 style="margin-left: 2em;">Large Language Models (LLMs)</h3>
+	<!-- Topic Filters -->
+    <div class="filter-container" style="margin-left: 2em;">
+        <a href="#" class="filter-link active" id="filter-llm" onclick="showTopic('llm'); return false;">Language Models & Agents</a>
+        <span class="filter-separator">/</span>
+        <a href="#" class="filter-link" id="filter-gnn" onclick="showTopic('gnn'); return false;">Graph Neural Networks</a>
+        <span class="filter-separator">/</span>
+        <a href="#" class="filter-link" id="filter-drug" onclick="showTopic('drug'); return false;">Drug Design</a>
+        <span class="filter-separator">/</span>
+        <a href="#" class="filter-link" id="filter-geometry" onclick="showTopic('geometry'); return false;">3D Geometric Learning</a>
+        <span class="filter-separator">/</span>
+        <a href="#" class="filter-link" id="filter-md" onclick="showTopic('md'); return false;">Molecular Dynamics</a>
+        <span class="filter-separator">/</span>
+        <a href="#" class="filter-link" id="filter-property" onclick="showTopic('property'); return false;">Molecular Property Prediction</a>
+        <span class="filter-separator">/</span>
+		<a href="#" class="filter-link" id="filter-vision" onclick="showTopic('vision'); return false;">Computer Vision</a>
+    </div>
+
+	<div id="section-llm" class="topic-section">
+<!--	<h3 style="margin-left: 2em;">Large Language Models (LLMs)</h3>-->
 			<p style="margin-left: 4em;">
 			<img src="img/paper/RLVR.png" align="left" width="170" height="90"/>
 			&nbsp&nbsp <b>The Invisible Leash: Why RLVR May Not Escape Its Origin.</b>  <br>
@@ -154,42 +249,37 @@ title: Fang WU
 			&nbsp&nbsp <a href="">[Code]</a> <br>
 			<br>
 		</p>		
+	</div>
 
-	<h3 style="margin-left: 2em;">LLMs for Science</h3>
-		<p style="margin-left: 4em;"> 
-			<img src="img/paper/gnn_plm.png" align="left" width="170" height="90"/>
-			&nbsp&nbsp <b>Integration of Pre-trained Protein Language Mdels into Geometric Deep Learning Networks.</b>
+    <div id="section-gnn" class="topic-section hidden">
+<!--	<h3 style="margin-left: 2em;">Graph Neural Networks (GNNs)</h3>-->
+		<p style="margin-left: 4em;">
+			<img src="img/paper/insertgnn.png" align="left" width="170" height="90"/>
+			&nbsp&nbsp <b>InsertGNN: A Hierarchical Graph Neural Network for the TOEFL Sentence Insertion Problem</b>
 			<span style="margin-left: 6px; vertical-align: middle;">
-			  <img src="https://img.shields.io/github/stars/smiles724/GGNN_Meets_PLM?style=social" alt="GitHub stars"/>
+			  <img src="https://img.shields.io/github/stars/smiles724/TOEFL-Sentence-Insertion-Dataset?style=social" alt="GitHub stars"/>
+			</span><br>
+			&nbsp&nbsp <b>Fang Wu<sup>&dagger;</sup>,</b> Stan Z. Li <br>
+			&nbsp&nbsp <span style="display: inline-block;background: #f7f7f7; color: #333333;padding: 2px 6px;border-radius: 3px;box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15); font-weight: normal;
+    		font-size: 0.9em; font-family: 'Georgia', 'Times New Roman', serif;">EMNLP 2024 Findings</span><br>
+			&nbsp&nbsp <a href="https://aclanthology.org/2024.findings-emnlp.9/">[Paper]</a>
+			&nbsp&nbsp <a href="https://github.com/smiles724/TOEFL-Sentence-Insertion-Dataset">[Data]</a> <br>
+			<br>
+		</p>
+		<p style="margin-left: 4em;">
+			<img src="img/paper/bottleneck.png" align="left" width="170" height="90"/>
+			&nbsp&nbsp <b>Discovering and Explaining the Representation Bottleneck of Graph Neural Networks from Multi-order Interactions</b>
+			<span style="margin-left: 6px; vertical-align: middle;">
+			  <img src="https://img.shields.io/github/stars/smiles724/bottleneck?style=social" alt="GitHub stars"/>
 			</span> <br>
-			&nbsp&nbsp <b>Fang Wu,</b> Liong Wu, Dragomir Radev, Jinbo Xu, Stan Z. Li<sup>&dagger;</sup><br>
-			&nbsp&nbsp <span style="display: inline-block;background: #f7f7f7; color: #333333;padding: 2px 6px;border-radius: 3px;box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15); font-weight: normal; 
-    		font-size: 0.9em; font-family: 'Georgia', 'Times New Roman', serif;">Communications Biology (2023)</span> <br>
-			&nbsp&nbsp <a href="https://www.nature.com/articles/s42003-023-05133-1">[Paper]</a> 
-			&nbsp&nbsp <a href="https://github.com/smiles724/GGNN_Meets_PLM">[Code]</a><br>
+			&nbsp&nbsp <b>Fang Wu*,</b> Siyuan Li*, Dragomir Radev, Stan Z. Li<sup>&dagger;</sup><br>
+			&nbsp&nbsp <span style="display: inline-block;background: #f7f7f7; color: #333333;padding: 2px 6px;border-radius: 3px;box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15); font-weight: normal;
+    		font-size: 0.9em; font-family: 'Georgia', 'Times New Roman', serif;">IEEE TKDE (2024)</span> <br>
+			&nbsp&nbsp <a href="https://ieeexplore.ieee.org/document/10640313">[Paper]</a>
+			&nbsp&nbsp <a href="https://github.com/smiles724/bottleneck">[Code]</a><br>
 			<br>
-		</p>	
-<!-- 		<p style="margin-left: 4em;"> 
-			<img src="img/.png" align="left" width="170" height="90"/>
-			&nbsp&nbsp <b>DiffLibrary. </b> <br>
-			&nbsp&nbsp <b>Fang Wu,</b> <br>
-			&nbsp&nbsp <em>/em> <br>
-			&nbsp&nbsp <a href="">[Paper]</a> 
-			&nbsp&nbsp <a href="">[Code]</a><br>
-			<br>
-		</p> -->
-<!-- 		<p style="margin-left: 4em;"> 
-			<img src="img/.png" align="left" width="170" height="90"/>https://www.ijcai.org/proceedings/2024/672
-			&nbsp&nbsp <b>Energy Flow Matching. </b> <br>
-			&nbsp&nbsp <b>Fang Wu,</b> <br>
-			&nbsp&nbsp <em></em> <br>
-			&nbsp&nbsp <a href="">[Paper]</a> 
-			&nbsp&nbsp <a href="">[Code]</a><br>
-			<br>
-		</p> -->
-
-	<h3 style="margin-left: 2em;">Graph Neural Networks (GNNs)</h3>
-		<p style="margin-left: 4em;"> 
+		</p>
+		<p style="margin-left: 4em;">
 			<img src="img/paper/matchexplainer.png" align="left" width="170" height="90"/>
 			&nbsp&nbsp <b>Rethinking Explaining Graph Neural Networks via Non-parametric Subgraph Matching</b>
 			<span style="margin-left: 6px; vertical-align: middle;">
@@ -202,35 +292,10 @@ title: Fang WU
 			&nbsp&nbsp <a href="https://github.com/smiles724/MatchExplainer">[Code]</a><br>
 			<br>
 		</p>
-		<p style="margin-left: 4em;"> 
-			<img src="img/paper/bottleneck.png" align="left" width="170" height="90"/>
-			&nbsp&nbsp <b>Discovering and Explaining the Representation Bottleneck of Graph Neural Networks from Multi-order Interactions</b>
-			<span style="margin-left: 6px; vertical-align: middle;">
-			  <img src="https://img.shields.io/github/stars/smiles724/bottleneck?style=social" alt="GitHub stars"/>
-			</span> <br>
-			&nbsp&nbsp <b>Fang Wu*,</b> Siyuan Li*, Dragomir Radev, Stan Z. Li<sup>&dagger;</sup><br>
-			&nbsp&nbsp <span style="display: inline-block;background: #f7f7f7; color: #333333;padding: 2px 6px;border-radius: 3px;box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15); font-weight: normal; 
-    		font-size: 0.9em; font-family: 'Georgia', 'Times New Roman', serif;">IEEE TKDE (2024)</span> <br>
-			&nbsp&nbsp <a href="https://ieeexplore.ieee.org/document/10640313">[Paper]</a> 
-			&nbsp&nbsp <a href="https://github.com/smiles724/bottleneck">[Code]</a><br>
-			<br>
-		</p>	
-		<p style="margin-left: 4em;">
-			<img src="img/paper/insertgnn.png" align="left" width="170" height="90"/>
-			&nbsp&nbsp <b>InsertGNN: A Hierarchical Graph Neural Network for the TOEFL Sentence Insertion Problem</b>
-			<span style="margin-left: 6px; vertical-align: middle;">
-			  <img src="https://img.shields.io/github/stars/smiles724/TOEFL-Sentence-Insertion-Dataset?style=social" alt="GitHub stars"/>
-			</span><br>
-			&nbsp&nbsp <b>Fang Wu<sup>&dagger;</sup>,</b> Stan Z. Li <br>
-			&nbsp&nbsp <span style="display: inline-block;background: #f7f7f7; color: #333333;padding: 2px 6px;border-radius: 3px;box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15); font-weight: normal; 
-    		font-size: 0.9em; font-family: 'Georgia', 'Times New Roman', serif;">EMNLP 2024 Findings</span><br>
-			&nbsp&nbsp <a href="https://aclanthology.org/2024.findings-emnlp.9/">[Paper]</a>
-			&nbsp&nbsp <a href="https://github.com/smiles724/TOEFL-Sentence-Insertion-Dataset">[Data]</a> <br>
-			<br>
-		</p>
+	</div>
 
-
-	<h3 style="margin-left: 2em;">Deep Generative Models for Drug Design</h3>
+    <div id="section-drug" class="topic-section hidden">
+<!--	<h3 style="margin-left: 2em;">Deep Generative Models for Drug Design</h3>-->
 		<p style="margin-left: 4em;"> 
 			<img src="img/paper/d-flow.png" align="left" width="170" height="90"/>
 			&nbsp&nbsp <b>D-Flow: Multi-modality Flow Matching for D-peptide Design. </b>
@@ -273,7 +338,7 @@ title: Fang WU
 			&nbsp&nbsp <b>Fang Wu*</b>, Shuting Jin, Zhengyuan Zhou, Xiangxiang Zeng, Jure Leskovec, Jinbo Xu<sup>&dagger;</sup><br>
 			&nbsp&nbsp <span style="display: inline-block;background: #f7f7f7; color: #333333;padding: 2px 6px;border-radius: 3px;box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15); font-weight: normal; 
     		font-size: 0.9em; font-family: 'Georgia', 'Times New Roman', serif;">KDD 2025</span> <br>
-			&nbsp&nbsp <a href="">[Paper]</a><br>
+			&nbsp&nbsp <a href="doi.acm.org?doi=3711896.3737139">[Paper]</a><br>
 			<br>
 		</p>
 		<p style="margin-left: 4em;"> 
@@ -297,9 +362,11 @@ title: Fang WU
     		font-size: 0.9em; font-family: 'Georgia', 'Times New Roman', serif;">NeurIPS 2023</span> <br>
 			&nbsp&nbsp <a href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/636d57c09a5baacd83722639265802f6-Abstract-Conference.html">[Paper]</a> <br>
 			<br>
-		</p>	
+		</p>
+	</div>
 
-	<h3 style="margin-left: 2em;">3D Geometric Deep Learning</h3>  
+    <div id="section-geometry" class="topic-section hidden">
+<!--	<h3 style="margin-left: 2em;">3D Geometric Deep Learning</h3>-->
 		<p style="margin-left: 4em;"> 
 			<img src="img/paper/posex.png" align="left" width="170" height="90"/>
 			&nbsp&nbsp <b>PoseX: AI Defeats Physics Approaches on Protein-Ligand Cross Docking.  </b>
@@ -308,7 +375,7 @@ title: Fang WU
 			</span> <br>
 			&nbsp&nbsp Yize Jiang*, Xinze Li*, Yuanyuan Zhang*, Jin Han*, Youjun Xu*, Ayush Pandit, Zaixi Zhang, Mengdi Wang, Mengyang Wang, Chong Liu, Guang Yang, Yejin Choi, Wu‑Jun Li<sup>&dagger;</sup>, Tianfan Fu<sup>&dagger;</sup>, <b>Fang Wu</b><sup>&dagger;</sup>, Junhong Liu<sup>&dagger;</sup> <br>
 			&nbsp&nbsp <span style="display: inline-block;background: #f7f7f7; color: #333333;padding: 2px 6px;border-radius: 3px;box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15); font-weight: normal; 
-    		font-size: 0.9em; font-family: 'Georgia', 'Times New Roman', serif;">Under Review</span><br>
+    		font-size: 0.9em; font-family: 'Georgia', 'Times New Roman', serif;">NeurIPS 2025</span><br>
 			&nbsp&nbsp <a href="https://arxiv.org/pdf/2505.01700">[Paper]</a>
 			&nbsp&nbsp <a href="https://github.com/CataAI/PoseX">[Code]</a>
 			&nbsp&nbsp <a href="http://dock-lab.tech/">[Webpage]</a> <br>
@@ -320,8 +387,8 @@ title: Fang WU
 			&nbsp&nbsp Arthur Deng, Karsten D. Householder, <b>Fang Wu</b>, Sebastian Thrun, K. Christopher Garcia, Brian L. Trippe<sup>&dagger;</sup> <br>
 			&nbsp&nbsp <span style="display: inline-block;background: #f7f7f7; color: #333333;padding: 2px 6px;border-radius: 3px;box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15); font-weight: normal; 
     		font-size: 0.9em; font-family: 'Georgia', 'Times New Roman', serif;">ICML 2025</span><br>
-			&nbsp&nbsp <a href="">[Paper]</a>
-			&nbsp&nbsp <a href="">[Code]</a> <br>
+			&nbsp&nbsp <a href="">[Paper]</a> <br>
+<!--			&nbsp&nbsp <a href="">[Code]</a> <br>-->
 			<br>
 		</p>
 		<p style="margin-left: 4em;"> 
@@ -376,6 +443,37 @@ title: Fang WU
 			&nbsp&nbsp <a href="https://github.com/smiles724/Molformer">[Code]</a><br>
 			<br>
 		</p>
+		<p style="margin-left: 4em;">
+			<img src="img/paper/gnn_plm.png" align="left" width="170" height="90"/>
+			&nbsp&nbsp <b>Integration of Pre-trained Protein Language Mdels into Geometric Deep Learning Networks.</b>
+			<span style="margin-left: 6px; vertical-align: middle;">
+			  <img src="https://img.shields.io/github/stars/smiles724/GGNN_Meets_PLM?style=social" alt="GitHub stars"/>
+			</span> <br>
+			&nbsp&nbsp <b>Fang Wu,</b> Liong Wu, Dragomir Radev, Jinbo Xu, Stan Z. Li<sup>&dagger;</sup><br>
+			&nbsp&nbsp <span style="display: inline-block;background: #f7f7f7; color: #333333;padding: 2px 6px;border-radius: 3px;box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15); font-weight: normal;
+    		font-size: 0.9em; font-family: 'Georgia', 'Times New Roman', serif;">Communications Biology (2023)</span> <br>
+			&nbsp&nbsp <a href="https://www.nature.com/articles/s42003-023-05133-1">[Paper]</a>
+			&nbsp&nbsp <a href="https://github.com/smiles724/GGNN_Meets_PLM">[Code]</a><br>
+			<br>
+		</p>
+<!-- 		<p style="margin-left: 4em;">
+			<img src="img/.png" align="left" width="170" height="90"/>
+			&nbsp&nbsp <b>DiffLibrary. </b> <br>
+			&nbsp&nbsp <b>Fang Wu,</b> <br>
+			&nbsp&nbsp <em>/em> <br>
+			&nbsp&nbsp <a href="">[Paper]</a>
+			&nbsp&nbsp <a href="">[Code]</a><br>
+			<br>
+		</p> -->
+<!-- 		<p style="margin-left: 4em;">
+			<img src="img/.png" align="left" width="170" height="90"/>https://www.ijcai.org/proceedings/2024/672
+			&nbsp&nbsp <b>Energy Flow Matching. </b> <br>
+			&nbsp&nbsp <b>Fang Wu,</b> <br>
+			&nbsp&nbsp <em></em> <br>
+			&nbsp&nbsp <a href="">[Paper]</a>
+			&nbsp&nbsp <a href="">[Code]</a><br>
+			<br>
+		</p> -->
 <!-- 		<p style="margin-left: 4em;"> 
 			<img src="img/.png" align="left" width="170" height="90"/>
 			&nbsp&nbsp <b>PDC-Net. </b> <br>
@@ -415,9 +513,24 @@ title: Fang WU
 			&nbsp&nbsp <a href="https://www.nature.com/articles/s41467-023-42863-6">[Paper]</a> 
 			&nbsp&nbsp <a href="https://github.com/DeepSorption/DeepSorption1.0">[Code]</a><br>
 			<br>
-		</p>	
+		</p>
+	</div>
 	
-	<h3 style="margin-left: 2em;">Molecular Property Prediction</h3>
+    <div id="section-property" class="topic-section hidden">
+<!--	<h3 style="margin-left: 2em;">Molecular Property Prediction</h3>-->
+		<p style="margin-left: 4em;">
+			<img src="img/paper/instructmol.png" align="left" width="170" height="90"/>
+			&nbsp&nbsp <b>Instructor-inspired Machine Learning for Robust Molecular Property Prediction. </b>
+			<span style="margin-left: 6px; vertical-align: middle;">
+			  <img src="https://img.shields.io/github/stars/smiles724/InstructBio?style=social" alt="GitHub stars"/>
+			</span> <br>
+			&nbsp&nbsp <b>Fang Wu*<sup>&dagger;</sup>,</b> Shuting Jin*, Siyuan Li, Stan Z. Li<br>
+			&nbsp&nbsp <span style="display: inline-block;background: #f7f7f7; color: #333333;padding: 2px 6px;border-radius: 3px;box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15); font-weight: normal;
+    		font-size: 0.9em; font-family: 'Georgia', 'Times New Roman', serif;">NeurIPS 2024</span> <br>
+			&nbsp&nbsp <a href="https://neurips.cc/virtual/2024/poster/93976">[Paper]</a>
+			&nbsp&nbsp <a href="https://github.com/smiles724/InstructBio">[Code]</a><br>
+			<br>
+		</p>
 		<p style="margin-left: 4em;"> 			
 			<img src="img/paper/semimol.png" align="left" width="170" height="90"/>
 			&nbsp&nbsp <b>A Semi-supervised Molecular Learning Framework for Activity Cliff Estimation. </b>
@@ -430,20 +543,7 @@ title: Fang WU
 			&nbsp&nbsp <a href="https://www.ijcai.org/proceedings/2024/672">[Paper]</a> 
 			&nbsp&nbsp <a href="https://github.com/smiles724/InstructBio">[Code]</a><br>
 			<br>
-		</p>	
-		<p style="margin-left: 4em;"> 
-			<img src="img/paper/instructmol.png" align="left" width="170" height="90"/>
-			&nbsp&nbsp <b>A Semi-supervised Molecular Learning Framework for Activity Cliff Estimation. </b>
-			<span style="margin-left: 6px; vertical-align: middle;">
-			  <img src="https://img.shields.io/github/stars/smiles724/InstructBio?style=social" alt="GitHub stars"/>
-			</span> <br>
-			&nbsp&nbsp <b>Fang Wu*<sup>&dagger;</sup>,</b> Shuting Jin*, Siyuan Li, Stan Z. Li<br>
-			&nbsp&nbsp <span style="display: inline-block;background: #f7f7f7; color: #333333;padding: 2px 6px;border-radius: 3px;box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15); font-weight: normal; 
-    		font-size: 0.9em; font-family: 'Georgia', 'Times New Roman', serif;">NeurIPS 2024</span> <br>
-			&nbsp&nbsp <a href="https://neurips.cc/virtual/2024/poster/93976">[Paper]</a> 
-			&nbsp&nbsp <a href="https://github.com/smiles724/InstructBio">[Code]</a><br>
-			<br>
-		</p>	
+		</p>
 		<p style="margin-left: 4em;">
 			<img src="img/paper/mrot.png" align="left" width="170" height="90"/>
 			&nbsp&nbsp <b>Metric Learning-enhanced Optimal Transport for Biochemical Regression Domain Adaptation</b>
@@ -457,9 +557,11 @@ title: Fang WU
 			&nbsp&nbsp <a href="https://github.com/smiles724/MROT">[Code]</a><br>
 			<br>
 		</p>
+	</div>
 
 
-	<h3 style="margin-left: 2em;">Molecular Dynamics (MD) Simulations</h3>
+	<div id="section-md" class="topic-section hidden">
+<!--	<h3 style="margin-left: 2em;">Molecular Dynamics (MD) Simulations</h3>-->
 		<p style="margin-left: 4em;"> 
 			<img src="img/paper/moe-dsr.png" align="left" width="170" height="90"/>
 			&nbsp&nbsp <b>Generalized Implicit Neural Representations for Dynamic Molecular Surface Modeling. </b> <br>
@@ -499,8 +601,10 @@ title: Fang WU
 			&nbsp&nbsp <a href="">[Paper]</a>
 			<br>
 		</p> -->
+	</div>
 
-	<h3 style="margin-left: 2em;">Computer Vision</h3>
+	<div id="section-vision" class="topic-section hidden">
+<!--	<h3 style="margin-left: 2em;">Computer Vision</h3>-->
 		<p style="margin-left: 4em;">
 			<img src="img/paper/semireward.png" align="left" width="170" height="90"/>
 			  <b>&nbsp&nbsp SemiReward: A General Reward Model for Semi-supervised Learning</b>
@@ -527,7 +631,7 @@ title: Fang WU
 			&nbsp&nbsp <a href="https://github.com/Westlake-AI/openmixup">[Code]</a> <br>
 			<br>
 		</p>
-	<h2></h2>
+	</div>
 	<p></p>
 
 	<h2><a name="edu"></a>Education</h2>
@@ -669,10 +773,10 @@ title: Fang WU
 
 	<h2><a name="ack"></a>Acknowledgement</h2>
 		<p style="text-indent: 2em;">My study cannot be possible without the support from my awesome friends, mentors, and collaborators! Check out some of them: </p>
-		<p style="margin-left: 4em;">Prof. <a href="https://scholar.google.com/citations?user=Q_kKkIUAAAAJ&hl=en">Jure Leskovec</a>, Prof. <a href="https://www.james-zou.com/">James Zou</a>, Prof. <a href="https://evodesign.org/team">Brian Hie</a>, Prof. <a href="https://briantrippe.com/">Brian Trippe</a>, Dr. <a href="">Auther Deng</a> at Stanford University.<br>
+		<p style="margin-left: 4em;">Prof. <a href="https://scholar.google.com/citations?user=Q_kKkIUAAAAJ&hl=en">Jure Leskovec</a>, Prof. <a href="https://www.james-zou.com/">James Zou</a>, Prof. <a href="https://briantrippe.com/">Brian Trippe</a>, Dr. <a href="">Auther Deng</a> at Stanford University.<br>
 		Prof. <a href="https://cpsc.yale.edu/people/dragomir-radev">Dragomir Radev</a>, Dr. <a href="https://xiangrutang.github.io/">Xiangru Tang</a> at Yale University. R.I.P. to Dr. Dragomir. <br>
 		<span id="more5" style="display: none;">
-		Prof. <a href="https://scholar.google.com/citations?user=Y-nyLGIAAAAJ&hl=en&oi=ao">Stan Z. Li</a>, Prof. <a href="http://www.cs.cmu.edu/~lanzhzh/">Danny Lan</a>, Dr. <a href="https://scholar.google.com/citations?user=SKTQTXwAAAAJ&hl=zh-CN">Siyuan Li</a>, Dr. <a href="https://lirongwu.github.io/">Lirong Wu</a>, Dr. Haitao Lin, Dr. Yufei Huang at Westlake University.<br>
+		Prof. <a href="https://scholar.google.com/citations?user=Y-nyLGIAAAAJ&hl=en&oi=ao">Stan Z. Li</a>, Prof. <a href="http://www.cs.cmu.edu/~lanzhzh/">Danny Lan</a>, Dr. <a href="https://scholar.google.com/citations?user=SKTQTXwAAAAJ&hl=zh-CN">Siyuan Li</a>, Dr. <a href="https://lirongwu.github.io/">Lirong Wu</a> at Westlake University.<br>
 		Prof. <a href="https://air.tsinghua.edu.cn/info/1047/1675.htm">Jinbo Xu</a>, Prof. <a href="https://scholar.google.com.hk/citations?user=pDMnGloAAAAJ&hl=zh-CN">Xianyun Zhan</a>, Dr. Shikun Feng at Tsinghua University, and Prof. <a href="https://gsai.ruc.edu.cn/addons/teacher/index/info.html?user_id=31&ruccode=ADIIMVRnBzFXMFdnVTAIOw%3D%3D&ln=en">Wenbing Huang</a> at Renmin University.<br>
 		Prof. <a href="https://person.zju.edu.cn/en/huajun">Huajun Chen</a>, Prof.  <a href="https://qiangairesearcher.github.io">Qiang Zhang</a>, Prof. Huabing Xing, Dr. <a href="https://www.researchgate.net/profile/Jiyu_Cui3">Jiyu Cui</a> at Zhejiang University.<br>
 		Prof. <a href="https://scholar.google.com/citations?user=B20HBMIAAAAJ&hl=en">Xiangxiang Zeng</a> at Hunan University and Prof. <a href="https://www.researchgate.net/profile/Jin-Shuting">Shuting Jin</a> at Wuhan Technology University.<br>
@@ -708,5 +812,29 @@ title: Fang WU
 	        }
 	    }
 	</script>
+
+<script>
+    function showTopic(topicId) {
+        // Remove active class from all filter links
+        const filterLinks = document.querySelectorAll('.filter-link');
+        filterLinks.forEach(link => link.classList.remove('active'));
+
+        // Add active class to selected topic
+        document.getElementById('filter-' + topicId).classList.add('active');
+
+        // Hide all sections first
+        const sections = document.querySelectorAll('.topic-section');
+        sections.forEach(section => section.classList.add('hidden'));
+
+        // Show selected section
+        document.getElementById('section-' + topicId).classList.remove('hidden');
+    }
+
+    // Initialize with LLM section shown by default
+    document.addEventListener('DOMContentLoaded', function() {
+        showTopic('llm');
+    });
+</script>
+
 </div><!-- /.blurb -->
 </body>
