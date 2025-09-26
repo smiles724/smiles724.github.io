@@ -1,5 +1,7 @@
 	<div class="filter-container" style="margin-left: 2em;">
-        <a href="#" class="filter-link active" id="filter-llm" onclick="showTopic('llm'); return false;">Language Models</a>
+        <a href="#" class="filter-link active" id="filter-rl" onclick="showTopic('rl'); return false;">RLHF/RLVR</a>
+        <span class="filter-separator">/</span>
+        <a href="#" class="filter-link" id="filter-llm" onclick="showTopic('llm'); return false;">Language Models</a>
         <span class="filter-separator">/</span>
         <a href="#" class="filter-link" id="filter-agent" onclick="showTopic('agent'); return false;">Agentic System</a>
         <span class="filter-separator">/</span>
@@ -10,8 +12,39 @@
 		<a href="#" class="filter-link" id="filter-vision" onclick="showTopic('vision'); return false;">Computer Vision</a>
     </div>
 
-	<div id="section-llm" class="topic-section">
-<!--	<h3 style="margin-left: 2em;">Large Language Models (LLMs)</h3>-->
+	<div id="section-rl" class="topic-section">
+		<p style="margin-left: 4em;">
+			<img src="img/paper/deepsearch.png" align="left" width="170" height="90"/>
+			&nbsp&nbsp <b>DeepSearch: Overcome the Bottleneck of Reinforcement Learning with Verifiable Rewards via Monte Carlo Tree Search.</b>  <br>
+			&nbsp&nbsp <b>Fang Wu*,</b> Weihao Xuan*, Heli Qi*, Ximing Lu, Aaron Tu, Li Erran Li, Yejin Choi<sup>&dagger;</sup><br>
+			&nbsp&nbsp <span style="display: inline-block;background: #f7f7f7; color: #333333;padding: 2px 6px;border-radius: 3px;box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15); font-weight: normal;
+    		font-size: 1.0em; font-family: 'Georgia', 'Times New Roman', serif;">Under Review</span> <br>
+			&nbsp&nbsp <a href="">[Paper]</a>
+			<br><br>
+		</p>
+
+		<p style="margin-left: 4em;">
+			<img src="img/paper/mnpo.png" align="left" width="170" height="90"/>
+			&nbsp&nbsp <b>Multiplayer Nash Preference Optimization.</b>
+			<span style="margin-left: 6px; vertical-align: middle;"> <img src="https://img.shields.io/github/stars/smiles724/MNPO?style=social" alt="GitHub stars"/></span> <br>
+			&nbsp&nbsp <b>Fang Wu*,</b> Xu Huang*, Weihao Xuan, Zhiwei Zhang, Yijia Xiao, Guancheng Wan, Xiaomin Li, Bing Hu, Peng Xia, Jure Leskovec, Yejin Choi<sup>&dagger;</sup><br>
+			&nbsp&nbsp <span style="display: inline-block;background: #f7f7f7; color: #333333;padding: 2px 6px;border-radius: 3px;box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15); font-weight: normal;
+    		font-size: 1.0em; font-family: 'Georgia', 'Times New Roman', serif;">Under Review</span> <br>
+			&nbsp&nbsp <a href="">[Paper]</a>
+			&nbsp&nbsp <a href="https://github.com/smiles724/MNPO">[Code]</a><br>
+			<br>
+		</p>
+
+		<p style="margin-left: 4em;">
+			<img src="img/paper/RLVR.png" align="left" width="170" height="90"/>
+			&nbsp&nbsp <b>The Invisible Leash: Why RLVR May Not Escape Its Origin.</b>  <br>
+			&nbsp&nbsp <b>Fang Wu*,</b> Weihao Xuan*, Ximing Lu, Zaid Harchaoui, Yejin Choi<sup>&dagger;</sup><br>
+			&nbsp&nbsp <span style="display: inline-block;background: #f7f7f7; color: #333333;padding: 2px 6px;border-radius: 3px;box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15); font-weight: normal;
+    		font-size: 1.0em; font-family: 'Georgia', 'Times New Roman', serif;">Under Review</span> <br>
+			&nbsp&nbsp <a href="https://arxiv.org/abs/2507.14843">[Paper]</a>
+			<br><br>
+		</p>
+
 		<p style="margin-left: 4em;">
 			<img src="img/paper/trading.png" align="left" width="170" height="90"/>
 			&nbsp&nbsp <b>Trading-R1: Financial Trading with LLM Reasoning via Reinforcement Learning.</b>
@@ -20,18 +53,13 @@
 			&nbsp&nbsp <span style="display: inline-block;background: #f7f7f7; color: #333333;padding: 2px 6px;border-radius: 3px;box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15); font-weight: normal;
     		font-size: 1.0em; font-family: 'Georgia', 'Times New Roman', serif;">Under Review</span> <br>
 			&nbsp&nbsp <a href="https://www.arxiv.org/abs/2509.11420">[Paper]</a>
-			&nbsp&nbsp <a href="https://github.com/TauricResearch/Trading-R1">[Code]</a><br>
+			&nbsp&nbsp <a href="https://github.com/TauricResearch/Trading-R1">[Code]</a>
 			<br>
 		</p>
-		<p style="margin-left: 4em;">
-			<img src="img/paper/RLVR.png" align="left" width="170" height="90"/>
-			&nbsp&nbsp <b>The Invisible Leash: Why RLVR May Not Escape Its Origin.</b>  <br>
-			&nbsp&nbsp <b>Fang Wu*,</b> Weihao Xuan*, Ximing Lu, Zaid Harchaoui, Yejin Choi<sup>&dagger;</sup><br>
-			&nbsp&nbsp <span style="display: inline-block;background: #f7f7f7; color: #333333;padding: 2px 6px;border-radius: 3px;box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15); font-weight: normal;
-    		font-size: 1.0em; font-family: 'Georgia', 'Times New Roman', serif;">ICML 2025 AI4MATH Workshop</span> <br>
-			&nbsp&nbsp <a href="https://arxiv.org/abs/2507.14843">[Paper]</a>
-			<br>
-		</p>
+	</div>
+
+	<div id="section-llm" class="topic-section hidden">
+<!--	<h3 style="margin-left: 2em;">Large Language Models (LLMs)</h3>-->
 		<p style="margin-left: 4em;">
 			<img src="img/paper/relllm.png" align="left" width="170" height="90"/>
 			&nbsp&nbsp <b>Large Language Models are Good Relational Learners.</b>
@@ -58,7 +86,7 @@
 		</p>
 	</div>
 
-	<div id="section-agent" class="topic-section">
+	<div id="section-agent" class="topic-section hidden">
 		<p style="margin-left: 4em;">
 			<img src="img/paper/cellforge.png" align="left" width="170" height="90"/>
 			&nbsp&nbsp <b>CellForge: Agentic Design of Virtual Cell Models</b>
@@ -116,7 +144,7 @@
 
 	</div>
 
-	<div id="section-bench" class="topic-section">
+	<div id="section-bench" class="topic-section hidden">
 		<p style="margin-left: 4em;">
 			<img src="img/paper/VeriGUI.png" align="left" width="170" height="90"/>
 			&nbsp&nbsp <b>VeriGUI: Verifiable Long-Chain GUI Dataset</b>
@@ -149,7 +177,7 @@
 		</p>
 	</div>
 
-		<div id="section-vision" class="topic-section hidden">
+	<div id="section-vision" class="topic-section hidden">
 <!--	<h3 style="margin-left: 2em;">Computer Vision</h3>-->
 		<p style="margin-left: 4em;">
 			<img src="img/paper/semireward.png" align="left" width="170" height="90"/>
