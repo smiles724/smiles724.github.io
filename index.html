@@ -206,16 +206,16 @@ title: Fang WU
 	<p style="margin-left: 2em;">* represents equal contribution and co-first authorship. &dagger; denotes the corresponding author(s).</p>
 	<!-- Topic Filters -->
 
-	<div id="papers-llm"></div>
+	<div id="papers-ai"></div>
 	<div id="papers-sci"></div>
 	<script>
 	  document.addEventListener('DOMContentLoaded', () => {
 		Promise.all([
-		  fetch('papers_llm.html').then(r => r.text()),
+		  fetch('papers_ai.html').then(r => r.text()),
 		  fetch('papers_sci.html').then(r => r.text()),
 		])
 		.then(([llm, sci]) => {
-		  document.getElementById('papers-llm').innerHTML = llm;
+		  document.getElementById('papers-ai').innerHTML = llm;
 		  document.getElementById('papers-sci').innerHTML = sci;
 		})
 		.catch(err => console.error('Failed to load papers:', err));
