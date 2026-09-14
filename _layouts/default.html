@@ -1,32 +1,109 @@
 <!DOCTYPE html>
-	<html>
-		<head>
-			<title>{{ page.title }}</title>
-			<!-- link to main stylesheet -->
-			<link rel="stylesheet" type="text/css" href="/css/main.css">
-		</head>
-		<body>
-			<nav>
-	    		<ul>
-	        		<li><a href="/">Home</a></li>
-	        		<li><a href="#pub">Research</a></li>
-	        		<li><a href="#edu">Education</a></li>
-	        		<li><a href="#exp">Experience</a></li>
-	        		<li><a href="#ser">Service</a></li>
-	    		</ul>
-			</nav>
-			<div class="container">
-			{{ content }}
-			
-			</div><!-- /.container -->
-			<footer>
-	    		<ul>
-	        		<li><a href="mailto:fw2359@columbia.edu">Email</a></li>
-	        		<li><a href="https://scholar.google.com/citations?user=8vHkc5YAAAAJ&hl=en">Google Scholar</a></li>
-	        		<li><a href="https://www.linkedin.com/in/wu-fang/">Linkedin</a></li>	        		
-	        		<li><a href="https://x.com/WUFang40615703">Twitter</a></li>
-	        		<li><a href="https://github.com/smiles724">Github</a></li>
-				</ul>
-			</footer>
-		</body>
-	</html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{{ page.title }}</title>
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<style>
+		.filter-container {
+			margin: 20px 0;
+			padding: 10px 0;
+			border-bottom: 2px solid #f0f0f0;
+		}
+
+		.filter-link {
+			color: #0066cc;
+			text-decoration: none;
+			cursor: pointer;
+			font-weight: bold;
+			padding: 5px 10px;
+			border-radius: 5px;
+			transition: background-color 0.3s;
+		}
+
+		.filter-link:hover {
+			background-color: #f0f0f0;
+		}
+
+		.filter-link.active {
+			background-color: #0066cc;
+			color: white;
+		}
+
+		.filter-separator {
+			margin: 0 10px;
+			color: #666;
+		}
+
+		.topic-section {
+			margin: 20px 0;
+		}
+
+		.topic-section.hidden {
+			display: none;
+		}
+
+		.topic-section > p {
+			display: flow-root;
+			min-height: 105px;
+		}
+
+		.topic-section > p > img:first-child {
+			float: left;
+			margin-right: 15px;
+		}
+
+		.conference-tag {
+			display: inline-block;
+			background: #f7f7f7;
+			color: #333;
+			padding: 2px 6px;
+			border-radius: 3px;
+			box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+			font-weight: normal;
+			font-size: 0.9em;
+			font-family: Georgia, "Times New Roman", serif;
+		}
+
+		.badge {
+			display: inline-block;
+			margin: 2px 1px;
+			background: linear-gradient(135deg, #ff7e5f, #feb47b);
+			color: white;
+			padding: 3px 6px;
+			border-radius: 5px;
+			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.1);
+			font-weight: bold;
+			font-size: 0.75em;
+			text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+			font-family: Georgia, "Times New Roman", serif;
+		}
+	</style>
+</head>
+<body>
+	<nav>
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="#pub">Research</a></li>
+			<li><a href="#edu">Education</a></li>
+			<li><a href="#exp">Experience</a></li>
+			<li><a href="#ser">Service</a></li>
+		</ul>
+	</nav>
+	<div class="container">
+		{{ content }}
+	</div>
+	<footer>
+		<ul>
+			<li><a href="mailto:fangwu97@stanford.edu">Email</a></li>
+			<li><a href="https://scholar.google.com/citations?user=8vHkc5YAAAAJ&hl=en">Google Scholar</a></li>
+			<li><a href="https://www.linkedin.com/in/wu-fang/">LinkedIn</a></li>
+			<li><a href="https://x.com/WUFang40615703">Twitter</a></li>
+			<li><a href="https://github.com/smiles724">GitHub</a></li>
+		</ul>
+	</footer>
+</body>
+</html>
