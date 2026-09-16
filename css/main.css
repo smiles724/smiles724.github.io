@@ -11,7 +11,7 @@
 
 body {
     margin: 52px auto;
-    width: min(74%, 1080px);
+    width: min(78%, 1140px);
     color: var(--ink);
     font-family: var(--font-body);
     font-size: 17px;
