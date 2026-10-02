@@ -107,10 +107,10 @@ title: Fang WU
 				&nbsp;&nbsp; [2022/10] One work on 3D pretraining is accepted by <em>Advanced Science</em>.</b>
 			</span>
 		</p>
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="javascript:void(0);" onclick="toggleContent('more1', 'link1')" id="link1" style="color: blue; text-decoration: none; cursor: pointer;">Read more</a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="javascript:void(0);" onclick="toggleContent('more1', 'link1')" id="link1" class="content-toggle">Read more</a>
 
 	<h2><a name="pub"></a>Research Summary</h2>  
-	<!-- TODO: seperate webpages for ai4s and LLM -->
+	<!-- TODO: separate webpages for ai4s and LLM -->
 	<p style="margin-left: 2em;">* represents equal contribution and co-first authorship. &dagger; denotes the corresponding author(s).</p>
 	<!-- Topic Filters -->
 
@@ -126,7 +126,8 @@ title: Fang WU
 		  document.getElementById('papers-ai').innerHTML = llm;
 		  document.getElementById('papers-sci').innerHTML = sci;
 		  sortPapersByStatusAndYear();
-		  showTopic('rl');
+		  setupPaperReadMore();
+		  showTopic('llm');
 		})
 		.catch(err => console.error('Failed to load papers:', err));
 	  });
@@ -177,18 +178,18 @@ title: Fang WU
 		<p style="margin-left: 2em;"> 
 			<span id="more2" style="display: none;">
 			<img src="img/cufe.png" style="float: left;" width="80" height="60"/>
-			&nbsp;&nbsp; <b>Central University of Economics and Finance</b><br>
+			&nbsp;&nbsp; <b>Central University of Finance and Economics</b><br>
 			&nbsp;&nbsp; <span class="education-period">2015 — 2019</span><br>
 			&nbsp;&nbsp; &bull; Bachelor of Science; GPA: 3.85/4.0<br>
 			</span>
 		</p>
-		<p style="margin-left: 2em;"> <a href="javascript:void(0);" onclick="toggleContent('more2', 'link2')" id="link2" style="color: blue; text-decoration: none; cursor: pointer;">Read more</a></p>
+		<p style="margin-left: 2em;"> <a href="javascript:void(0);" onclick="toggleContent('more2', 'link2')" id="link2" class="content-toggle">Read more</a></p>
 
 	<h2><a name="exp"></a>Industry Experience</h2>
 		<p style="margin-left: 2em;">
 			<img src="img/bytedance.png" style="float: left;" width="80" height="60"/>
 			&nbsp;&nbsp; Research Scientist Intern (2025.06) <br>
-			&nbsp;&nbsp; &bull; <b>Bytedance Research</b><br>
+			&nbsp;&nbsp; &bull; <b>ByteDance Research</b><br>
 			&nbsp;&nbsp; &bull; Led by <a href="https://web.cs.ucla.edu/~qgu/">Quanquan Gu</a><br>
 			<br>
 		</p>
@@ -207,7 +208,7 @@ title: Fang WU
 			&nbsp;&nbsp; &bull; Led by <a href="https://scholar.google.com/citations?user=p_Jc_A8AAAAJ&hl=en">Zhangming Niu</a><br>
 			</span>
 		</p>
-		<p style="margin-left: 2em;"> <a href="javascript:void(0);" onclick="toggleContent('more3', 'link3')" id="link3" style="color: blue; text-decoration: none; cursor: pointer;">Read more</a></p>
+		<p style="margin-left: 2em;"> <a href="javascript:void(0);" onclick="toggleContent('more3', 'link3')" id="link3" class="content-toggle">Read more</a></p>
 
 	<h2><a name="research-exp"></a>Research Experience</h2>
 		<p style="text-indent: 2em;">Before joining Stanford University, I feel fortunate to be a research assistant/engineer advised by
@@ -243,7 +244,7 @@ title: Fang WU
 <!--			&nbsp;&nbsp; &bull; Hosted by <a href="https://person.zju.edu.cn/en/huajun">Huajun Chen</a><br> <br>-->
 			</span>
 		</p>
-		<p style="margin-left: 2em;"> <a href="javascript:void(0);" onclick="toggleContent('more4', 'link4')" id="link4" style="color: blue; text-decoration: none; cursor: pointer;">Read more</a></p>
+		<p style="margin-left: 2em;"> <a href="javascript:void(0);" onclick="toggleContent('more4', 'link4')" id="link4" class="content-toggle">Read more</a></p>
 
 		<!-- <p style="margin-left: 2em;">  -->
 		<!-- </p> -->
@@ -322,7 +323,7 @@ title: Fang WU
 		Prof. <a href="https://scholar.google.com/citations?user=6VkxqHIAAAAJ&hl=en">Buyong Ma</a>, Prof. <a href="https://prokia.github.io/">Shuangjia Zheng </a>, Prof. <a href="https://scholar.google.com/citations?user=ga230VoAAAAJ&hl=en">Junchi Yan</a> at Shanghai Jiaotong University<br>
 		Prof. <a href="https://scholar.google.com/citations?user=UeltiQ4AAAAJ&hl=en">Xiang Bai</a> at Huazhong University of Science and Technology.
 		</span></p>
-		<p style="margin-left: 4em;"> <a href="javascript:void(0);" onclick="toggleContent('more5', 'link5')" id="link5" style="color: blue; text-decoration: none; cursor: pointer;">Read more</a></p>
+		<p style="margin-left: 4em;"> <a href="javascript:void(0);" onclick="toggleContent('more5', 'link5')" id="link5" class="content-toggle">Read more</a></p>
 		<p style="margin-left: 2em;">Aside from university collaborations, I also collaborated with many industrial AIDD companies, including <a href="https://www.mindrank.ai/">MindrankAI</a>, <a href="http://moleculemind.com/">MoleculeMind</a>, and <a href="https://www.biomap.com/">Biomap</a></p> 
 		<!-- as well as non-profit organizations -->
 		<p style="margin-left: 4em;">Dr. <a href="https://scholar.google.com/citations?user=p_Jc_A8AAAAJ&hl=en">Zhangming Niu</a>, Dr. <a href="https://scholar.google.com/citations?user=lSXBExEAAAAJ&hl=en">Xurui Jin</a>, and Dr. Yinghui Jiang at MindrankAI.<br>
@@ -330,7 +331,7 @@ title: Fang WU
 		<span id="more6" style="display: none;">
 		<!-- <p style="margin-left: 4em;">Mr. Guojiang Zhao at DeepPotential.</p> -->
 		</span></p>
-		<p style="margin-left: 4em;"> <a href="javascript:void(0);" onclick="toggleContent('more6', 'link6')" id="link6" style="color: blue; text-decoration: none; cursor: pointer;">Read more</a></p>
+		<p style="margin-left: 4em;"> <a href="javascript:void(0);" onclick="toggleContent('more6', 'link6')" id="link6" class="content-toggle">Read more</a></p>
 	</section>
 
 	<br><br>
@@ -355,6 +356,11 @@ title: Fang WU
 	</script>
 
 <script>
+    function getLatestPaperYear(paper) {
+        const years = paper.textContent.match(/\b20\d{2}\b/g) || [];
+        return years.length ? Math.max(...years.map(Number)) : 0;
+    }
+
     function sortPapersByStatusAndYear() {
         document.querySelectorAll('.topic-section').forEach(section => {
             const papers = Array.from(section.children).filter(item =>
@@ -369,15 +375,54 @@ title: Fang WU
                     return aUnderReview ? -1 : 1;
                 }
 
-                const getLatestYear = paper => {
-                    const years = paper.textContent.match(/\b20\d{2}\b/g) || [];
-                    return years.length ? Math.max(...years.map(Number)) : 0;
-                };
-
-                return getLatestYear(b) - getLatestYear(a);
+                return getLatestPaperYear(b) - getLatestPaperYear(a);
             });
 
             papers.forEach(paper => section.appendChild(paper));
+        });
+    }
+
+    function setupPaperReadMore() {
+        document.querySelectorAll('.topic-section').forEach(section => {
+            const papers = Array.from(section.children).filter(item =>
+                item.matches('p') && item.querySelector('img[src^="img/paper/"]')
+            );
+
+            if (papers.length <= 5) {
+                return;
+            }
+
+            const collapsedPapers = papers.filter((paper, index) => {
+                const year = getLatestPaperYear(paper);
+                return index >= 5 && year > 0 && year < 2025;
+            });
+
+            if (!collapsedPapers.length) {
+                return;
+            }
+
+            collapsedPapers.forEach(paper => paper.classList.add('paper-collapsed'));
+
+            const toggleContainer = document.createElement('div');
+            toggleContainer.className = 'paper-toggle-container';
+
+            const toggleButton = document.createElement('button');
+            toggleButton.type = 'button';
+            toggleButton.className = 'paper-toggle';
+            toggleButton.textContent = 'Read more';
+            toggleButton.setAttribute('aria-expanded', 'false');
+
+            toggleButton.addEventListener('click', () => {
+                const isExpanded = toggleButton.getAttribute('aria-expanded') === 'true';
+                collapsedPapers.forEach(paper =>
+                    paper.classList.toggle('paper-collapsed', isExpanded)
+                );
+                toggleButton.textContent = isExpanded ? 'Read more' : 'Read less';
+                toggleButton.setAttribute('aria-expanded', String(!isExpanded));
+            });
+
+            toggleContainer.appendChild(toggleButton);
+            section.appendChild(toggleContainer);
         });
     }
 

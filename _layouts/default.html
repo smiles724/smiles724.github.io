@@ -51,12 +51,52 @@
 
 		.topic-section > p {
 			display: flow-root;
-			min-height: 105px;
+			min-height: 115px;
+		}
+
+		.topic-section > .topic-description {
+			min-height: 0;
+			margin: 4px 0 18px 4em;
+			color: #7a3f8f;
+			font-size: 1.05em;
+			font-weight: 600;
+		}
+
+		.topic-description > em {
+			color: inherit;
 		}
 
 		.topic-section > p > img:first-child {
 			float: left;
+			width: 200px;
+			height: 115px;
 			margin-right: 15px;
+			object-fit: cover;
+		}
+
+		.topic-section > .paper-collapsed {
+			display: none;
+		}
+
+		.paper-toggle-container {
+			margin: 8px 0 18px 4em;
+		}
+
+		.paper-toggle,
+		.content-toggle {
+			padding: 0;
+			border: 0;
+			background: none;
+			color: #1677ff;
+			cursor: pointer;
+			font: 700 1em var(--font-body);
+			text-decoration: none;
+		}
+
+		.paper-toggle:hover,
+		.content-toggle:hover {
+			color: #005bd3;
+			text-decoration: underline;
 		}
 
 		.conference-tag {
