@@ -128,6 +128,7 @@ title: Fang WU
 		  sortPapersByStatusAndYear();
 		  setupPaperReadMore();
 		  showTopic('llm');
+		  showTopic('drug');
 		})
 		.catch(err => console.error('Failed to load papers:', err));
 	  });
@@ -427,19 +428,29 @@ title: Fang WU
     }
 
     function showTopic(topicId) {
-        // Remove active class from all filter links
-        const filterLinks = document.querySelectorAll('.filter-link');
+        const activeFilter = document.getElementById('filter-' + topicId);
+        const activeSection = document.getElementById('section-' + topicId);
+
+        if (!activeFilter || !activeSection) {
+            return;
+        }
+
+        const topicGroup = activeFilter.closest('#papers-ai, #papers-sci');
+
+        if (!topicGroup) {
+            return;
+        }
+
+        // Update only the filters in the selected AI or AI4Science group
+        const filterLinks = topicGroup.querySelectorAll('.filter-link');
         filterLinks.forEach(link => link.classList.remove('active'));
+        activeFilter.classList.add('active');
 
-        // Add active class to selected topic
-        document.getElementById('filter-' + topicId).classList.add('active');
-
-        // Hide all sections first
-        const sections = document.querySelectorAll('.topic-section');
+        // Hide only the sections in the selected group
+        const sections = topicGroup.querySelectorAll('.topic-section');
         sections.forEach(section => section.classList.add('hidden'));
 
-        // Show selected section
-        document.getElementById('section-' + topicId).classList.remove('hidden');
+        activeSection.classList.remove('hidden');
     }
 
 </script>
