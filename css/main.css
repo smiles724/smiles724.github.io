@@ -70,6 +70,11 @@ h2 {
 h3 {
     font-size: 1.15em;
 }
+.research-track-title {
+    margin: 2rem 0 0.35rem 2rem;
+    color: #343b45;
+    font-size: 1.25em;
+}
 p {
     font-size: 1em;
     line-height: 1.58;
