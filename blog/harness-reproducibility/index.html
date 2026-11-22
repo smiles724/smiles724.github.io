@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="A reproducibility review of harness evolution and fine-tuning for long-horizon LLM agents.">
+<title>When Should You Fine-Tune an Agent?</title>
+<style>
+:root{--paper:#f8f6f0;--ink:#172b32;--muted:#506164;--accent:#9e442f;--line:#d9ddd5;--teal:#1c6968}
+*{box-sizing:border-box}html{scroll-padding-top:24px}body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.88 Georgia,"Times New Roman",serif}
+a{color:var(--teal);text-underline-offset:3px}a:hover{color:var(--accent)}a:focus-visible{outline:2px solid var(--teal);outline-offset:4px}
+.shell{width:min(1100px,100%);margin:auto;padding:0 36px}.top{border-bottom:1px solid var(--line);padding:20px 0;display:flex;justify-content:space-between;gap:12px;font:13px/1.5 system-ui,sans-serif;color:var(--muted)}
+header{padding:63px 0 42px;max-width:870px}h1{font-size:clamp(38px,6vw,73px);font-weight:600;line-height:1.17;letter-spacing:-.05em;margin:0 0 22px}h1 span{color:var(--teal)}
+.deck{font-size:clamp(18px,2.5vw,24px);line-height:1.55;color:var(--muted);max-width:780px;margin-bottom:17px}
+.meta,figcaption{font:14px/1.65 system-ui,sans-serif;color:var(--muted)}.layout{display:grid;grid-template-columns:175px minmax(0,740px);gap:44px;padding-bottom:64px}
+nav{position:sticky;top:24px;border-top:2px solid var(--ink);padding:14px 0;font:14px/1.5 system-ui,sans-serif}nav a{display:block;margin:10px 0;text-decoration:none}
+article{min-width:0}p{margin:0 0 18px}h2{font-size:clamp(24px,3.5vw,36px);line-height:1.35;margin:44px 0 15px;letter-spacing:-.025em}h2:first-child{margin-top:0}
+.summary{border-left:4px solid var(--teal);background:#eaf0e9;padding:18px 22px;margin:0 0 30px}.summary p{margin:0}
+figure{margin:22px 0 26px}figure img{display:block;width:100%;height:auto}figcaption{padding-top:8px}figcaption a{margin-left:.35em}
+li{padding-left:4px;margin:10px 0}ol{padding-left:24px}footer{border-top:1px solid var(--line);padding-top:18px;margin-top:36px}
+@media(max-width:760px){.shell{padding:0 20px}.layout{display:block}header{padding:36px 0 22px}nav{position:static;display:flex;flex-wrap:wrap;gap:3px 16px;margin-bottom:20px}nav strong{flex-basis:100%}nav a{margin:3px 0}}
+@media print{nav,.top{display:none}.layout{display:block}.shell{width:auto;padding:0}header{padding:0 0 24px}figure{break-inside:avoid}body{background:white}}
+</style>
+<link rel="canonical" href="https://smiles724.github.io/blog/harness-reproducibility/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="When Should You Fine-Tune an Agent?">
+<meta property="og:description" content="A reproducibility review of harness evolution and fine-tuning for long-horizon LLM agents.">
+<meta property="og:url" content="https://smiles724.github.io/blog/harness-reproducibility/">
+<meta property="og:image" content="https://smiles724.github.io/blog/harness-reproducibility/assets/deepplanning-scores.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image:alt" content="Held-out DeepPlanning scores for four harness and weight combinations on Qwen3.5-4B and 9B.">
+</head>
+<body><div class="shell">
+<div class="top"><a href="/#blog">← Fang Wu / Blog</a><a href="https://arxiv.org/abs/2610.11655">arXiv:2610.11655v1</a></div>
+<header>
+<h1>When should you <span>fine-tune an agent?</span></h1>
+<p class="deck">A reproducibility review of what changes when you improve the harness, train the model, or do both.</p>
+<p class="meta">By Fang Wu · November 21, 2026 · Figures from Tian et al. (2026)</p>
+</header>
+<div class="layout">
+<nav aria-label="Article contents"><strong>In this essay</strong><a href="#design">The four-way comparison</a><a href="#failures">Failure patterns</a><a href="#control">The shuffled control</a><a href="#transfer">Web navigation</a><a href="#rerun">A minimal replication</a></nav>
+<article>
+<p>A travel-planning agent can lose points by querying the same hotel until it runs out of steps, or by submitting an itinerary that exceeds the budget. Both runs drag down the benchmark score. The first gives you a reason to inspect the harness, the prompts, tools, and runtime controls around the model. The second gives you a reason to inspect the quality of the plans the model can produce. Tian and colleagues test those interventions on the same tasks and use the run logs to see which failures disappear. <a href="https://arxiv.org/pdf/2610.11655#page=4">Paper, §3</a></p>
+<div class="summary"><p><strong>The result worth replicating</strong> is the different response of the two models. On Qwen3.5-4B, improving the harness and adding LoRA yield the highest score when combined. On Qwen3.5-9B, LoRA under the original harness already reaches the level of the evolved harness, and the difference from combining them falls within the paper’s measurement noise.</p></div>
+
+<h2 id="design">Four configurations on the same tasks</h2>
+<p>On DeepPlanning, a benchmark for multi-day travel planning, the authors keep the official tools and scorer and split 120 tasks into 48 development tasks and 72 held-out tasks. During harness evolution they freeze the model. A proposer suggests two edits per round to prompts, policies, middleware, or tools. Both candidates are tested on the development set, and the retained configuration is measured again to establish a fresh baseline. The authors then train LoRA adapters on high-scoring development trajectories collected with the evolved harness, applying the loss to assistant outputs. <a href="https://arxiv.org/pdf/2610.11655#page=5">Paper, §4</a></p>
+<p>For 4B, the held-out composite score rises from <strong>0.164</strong> to <strong>0.379</strong> with both changes. Adding LoRA to the evolved harness accounts for a <strong>+0.082</strong> difference. For 9B, the evolved harness alone scores <strong>0.442</strong>, LoRA alone scores <strong>0.454</strong>, and the combination scores <strong>0.449</strong>. Those three 9B scores are closer together than the paper’s <strong>0.035</strong> threshold for distinguishing four-rollout means. The evolved-harness baseline for 4B comes from two rollouts on an earlier night, so the paper uses <strong>0.050</strong> for comparisons involving that point.</p>
+<figure><a href="assets/deepplanning-scores.png" download><img src="assets/deepplanning-scores.png" alt="4B scores are 0.164, 0.297, 0.290, and 0.379. 9B scores are 0.323, 0.442, 0.454, and 0.449, in the same configuration order."></a><figcaption>Figure 1. 4B uses attention-only LoRA. The selected 9B adapter also trains MLP projections. <a href="https://arxiv.org/pdf/2610.11655#page=7">Table 1</a></figcaption></figure>
+
+<h2 id="failures">Which failures became less frequent?</h2>
+<p>DeepPlanning assigns zero to runs that fail to deliver a parseable plan, so <strong>composite score = delivery rate × average score among delivered plans</strong>. The authors label a trajectory healthy if its plan scores at least 0.5. For the rest, the first signal that fires determines the label: F1 for an evidence problem, F2 for harness friction, or F3 for an execution-control problem such as looping. F4 is the remaining category, usually a low-scoring plan submitted without those earlier signals. The order matters when comparing category shares. <a href="https://arxiv.org/pdf/2610.11655#page=4">Paper, §3.1–3.2</a></p>
+<figure><a href="assets/failure-diagnostics.png" download><img src="assets/failure-diagnostics.png" alt="4B delivery rises from 55% to 90%. 9B F4 falls from 28.1% to 4.5%."></a><figcaption>Figure 2. The 4B comparison fixes model weights. The 9B comparison fixes the seed harness. <a href="https://arxiv.org/pdf/2610.11655#page=14">Table 5</a> · <a href="https://arxiv.org/pdf/2610.11655#page=15">Table 9</a></figcaption></figure>
+<p>For 4B, evolving the harness raises held-out delivery from <strong>55% to 90%</strong>. On held-out tasks where both harnesses delivered a plan, the paired score difference was only <strong>+0.022</strong>. The overall increase in average delivered-plan quality therefore needs to be read alongside the change in which tasks were completed. For 9B, LoRA under the seed harness cuts F4 from <strong>28.1% to 4.5%</strong> while delivery moves from 97% to 96%. That pattern supports a change in what the model submits under the same harness. <a href="https://arxiv.org/pdf/2610.11655#page=6">Paper, §5.1</a> · <a href="https://arxiv.org/pdf/2610.11655#page=15">Appendix Table 9</a></p>
+
+<h2 id="control">The shuffled-response control</h2>
+<p>In a separate same-night 9B experiment, the authors keep the inputs and training steps fixed and shuffle assistant outputs across samples. LoRA trained with correctly paired responses scores <strong>0.426</strong> on the held-out tasks. The shuffled adapter scores <strong>0.152</strong>, and the base model scores <strong>0.379</strong>. The comparison makes the pairing of inputs and responses part of what a replication needs to preserve. It also gives a concrete negative control for the 9B setup.</p>
+<figure><a href="assets/shuffled-control.png" download><img src="assets/shuffled-control.png" alt="The base model scores 0.379, paired-response LoRA scores 0.426, and shuffled-response LoRA scores 0.152."></a><figcaption>Figure 3. The shuffled control preserves inputs and training steps. <a href="https://arxiv.org/pdf/2610.11655#page=16">Table 10</a></figcaption></figure>
+
+<h2 id="transfer">What transferred to web navigation</h2>
+<p>On WebArena-Lite, one important edit keeps the two most recent full pages in context, up from one. On 117 held-out tasks, the evolved harness raises the base model’s score from <strong>0.256 to 0.344</strong> and delivery from <strong>49% to 77%</strong>. Neither fine-tuned model shows a gain beyond the benchmark’s <strong>0.064</strong> resolution threshold, and those models were evaluated the next night. A replication can isolate the page-history change by evaluating one and two pages with all other runtime settings held fixed. <a href="https://arxiv.org/pdf/2610.11655#page=8">Paper, §5.3</a></p>
+<figure><a href="assets/webarena-scores.png" download><img src="assets/webarena-scores.png" alt="Base weights score 0.256 under the seed harness and 0.344 under the evolved harness. With the evolved harness, LoRA scores 0.327 and full fine-tuning scores 0.331."></a><figcaption>Figure 4. The base models were measured on the same night. The fine-tuned models were evaluated the following night. <a href="https://arxiv.org/pdf/2610.11655#page=18">Table 13</a></figcaption></figure>
+
+<h2 id="rerun">A minimal replication</h2>
+<p>Start with the four-way DeepPlanning comparison. The steps below describe a proposed rerun. The figures report the authors’ results.</p>
+<ol>
+<li><strong>Freeze the tasks and scorer.</strong> Record development and held-out task IDs, model revisions, the official tools and scorer, and the plan-to-JSON converter. The paper’s main runs disable thinking and use a temperature of 0.7. Save the delivery rate, delivered-plan quality, failure labels, and per-task traces alongside the composite score.</li>
+<li><strong>Keep harness search on the development split.</strong> Rebuild the seed harness with its state ledger, checkpoint, and exit gate. Log the candidate edits and their rollback conditions, then remeasure the retained configuration after each accepted edit. On 4B, check whether delivery improves as F3 falls.</li>
+<li><strong>Generate training data and cross the two factors.</strong> Collect eight development rollouts per task for 4B and twelve for 9B. Retain up to three high-scoring trajectories per task using cutoffs of 0.5 and 0.6 respectively. Start with LoRA rank 32, alpha 64, dropout 0.05, and a learning rate of 10⁻⁴, taking the checkpoint at the end of the first epoch. Select the adapter configuration on development tasks. Evaluate all four combinations on the held-out tasks under the same serving setup and on the same night, with four rollouts per combination.</li>
+<li><strong>Check the failure mechanism and controls.</strong> Test whether 9B’s F4 rate falls under the seed harness and whether 4B’s combined gain exceeds the rerun’s measured noise. If budget permits, repeat the shuffled-response control on 9B and the one-page versus two-page comparison on WebArena-Lite.</li>
+</ol>
+<p>Matching the paper’s absolute scores would be easier with the exact split, seed and evolved harness snapshots, proposer inputs, and training trajectories. I did not find a companion reproduction repository or independently rerun the experiments. With a reconstructed harness, the direction of the gains and the failure patterns are the first things to verify. The authors report cross-night drift as large as about <strong>0.05</strong> and identify a matched-budget test-time search comparison as an open question. <a href="https://arxiv.org/pdf/2610.11655#page=10">Paper, limitations</a> · <a href="https://arxiv.org/pdf/2610.11655#page=12">Appendix A</a></p>
+<footer class="meta">Source · Yuan Tian, Bing Hu, Hao Wang, Binghang Lu, and Fang Wu (2026). <a href="https://arxiv.org/abs/2610.11655">Harness Evolution Hits a Ceiling: When Weight Training Should Begin</a>.</footer>
+</article></div></div></body></html>
